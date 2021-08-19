@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<!--  <p>Welcome to Django Website<em></em>!</p>-->
+  <div class="home-page-content">
+
+    <h4>Steganography Tool</h4>
+
+    Image Steganography refers to the process of hiding data within an image file. The image selected for
+     this purpose is called the cover-image and the image obtained after steganography is called 
+     the stego-image.<br>
+     An image is represented as an N*M (in case of greyscale images) or N*M*3 (in case of colour images) 
+     matrix in memory, with each entry representing the intensity value of a pixel.
+     In image steganography, a message is embedded into an image by altering the values of some pixels, 
+     which are chosen by an encryption algorithm. The recipient of the image must be aware of the same 
+     algorithm in order to known which pixels he or she must select to extract the message.<br>
+     Detection of the message within the cover-image is done by the process of steganalysis.
+     This can be done through comparison with the cover image, histogram plotting, or by noise detection.
+     While efforts are being invested in developing new algorithms with a greater degree of immunity 
+     against such attacks, efforts are also being devoted towards improving existing algorithms for 
+     steganalysis, to detect exchange of secret information between terrorists or criminal elements.
+  </div>
+  
+{% endblock %}
+

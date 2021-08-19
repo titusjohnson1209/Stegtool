@@ -1,0 +1,50 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <div class="row tab-panel">
+        <div class="col-md-6 tab-section tab-active" tab-id = "encText">
+            Encode Text 
+        </div>
+        <div class="col-md-6 tab-section" tab-id = "encFile">
+            Encode Text File
+        </div>
+    </div>
+    <div class="encode-form">
+        <form method="post" action="" id="encodeForm" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label class="custom-file-upload">
+                    <input type="file" name="encodeimg" required id="encodeimg"/>
+                    {% load static %} <img src="{% static "images/Upload.png" %}" alt="uploadimg" />
+                    <span class="upload-btn">Select Cover Image</span><span id="Upfilename"></span>
+                    <span class="err-res"></span>
+                </label>
+            </div>
+            <div class="tab-content show-tab" id="encText">
+                <div class="form-group">
+                    <textarea placeholder="Enter Message" class="form-control form-in" id="message"
+                        name="message" rows="2"></textarea>
+                </div>
+            </div>
+            <div class="tab-content" id="encFile">
+                <div class="form-group">
+                    <label class="custom-file-upload">
+                        <input type="file" name="encodetextfile" id="encodetextfile"/>
+                        {% load static %} <img src="{% static "images/Upload.png" %}" alt="uploadtextfile" />
+                        <span class="upload-btn">Select Text File</span><span id="UpTextfilename"></span>
+                        <span class="err-res-txt"></span>
+                    </label>
+                </div>
+            </div>
+            <div class ="btn-panel">
+                <button type="submit" id="submitbtn" class="btn btn-custom">Encode</button>
+            </div>
+            <div id="loader" >
+                <div class="lds-ellipsis"><div>1O</div><div>O1</div><div>1O</div><div>O1</div>
+                    <span >Processing...</span>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
